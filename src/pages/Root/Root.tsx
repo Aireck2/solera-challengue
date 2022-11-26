@@ -1,10 +1,15 @@
 import { Outlet } from "react-router";
+
+import { Layout } from "@/components/layouts";
+
 const Root = () => {
   return (
-    <div>
-      <p>This is root</p>
-      <Outlet />
-    </div>
+    <>
+      <Layout.Navbar />
+      <Layout>
+        <Outlet />
+      </Layout>
+    </>
   );
 };
 export default Root;
