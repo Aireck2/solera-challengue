@@ -9,6 +9,7 @@ const menuList: MenuItem[] = [
   { href: "/", label: "Todos" },
   { href: "/cars", label: "Autos" },
   { href: "/health", label: "Salud" },
+  { href: "/home", label: "Hogar" },
 ];
 
 export const Navbar = () => {
