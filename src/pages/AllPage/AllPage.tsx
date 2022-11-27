@@ -1,14 +1,9 @@
 import { ServiceCard } from "./components/ServiceCard";
+import { CreateService } from "./components/Form/CreateService";
+
+import { servicesList } from "../../../dataMock";
 
 import { ContainerStyled } from "./styles";
-
-const servicesList = [
-  { id: "1", title: "Electricidad", description: "description" },
-  { id: "2", title: "Auxilio Mecanico", description: "description" },
-  { id: "3", title: "Chofer reemplazo", description: "description" },
-  { id: "4", title: "Medico a domicilio", description: "description" },
-  { id: "5", title: "Ambulancia", description: "description" },
-];
 
 const AllPage = () => {
   return (
@@ -17,11 +12,14 @@ const AllPage = () => {
         {servicesList.map(({ id, title, description }) => (
           <ServiceCard
             key={id}
-            title={title}
+            name={title}
             description={description}
             id={id}
           />
         ))}
+      </section>
+      <section className="form">
+        <CreateService />
       </section>
     </ContainerStyled>
   );
