@@ -2,16 +2,21 @@ import { FC } from "react";
 
 import { Button, Card } from "@/components/basics";
 
-interface ServiceItem {
+import { ServiceValues } from "./Form/ServiceForm";
+
+interface ServiceItem extends ServiceValues {
   id: string;
-  title: string;
-  description: string;
 }
 
-export const ServiceCard: FC<ServiceItem> = ({ id, title, description }) => {
+export const ServiceCard: FC<ServiceItem> = ({
+  id,
+  name,
+  description,
+  label,
+}) => {
   return (
     <Card
-      title={title}
+      title={name}
       actions={
         <>
           <Button type="link">Editar</Button>
@@ -21,6 +26,7 @@ export const ServiceCard: FC<ServiceItem> = ({ id, title, description }) => {
     >
       <>
         <p>{description}</p>
+        <span>{label}</span>
       </>
     </Card>
   );
