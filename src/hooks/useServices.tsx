@@ -7,6 +7,7 @@ import storage from "@/helpers/storage";
 
 export const useServices = () => {
   const [listServices, setListServices] = useState<ServiceItem[]>([]);
+  const [labelFilter, setLabelFilter] = useState("");
 
   const getById = (id: string) => {
     const foundService = listServices.find((sv) => sv.id === id);
@@ -50,11 +51,18 @@ export const useServices = () => {
     }
   }, []);
 
+  const adaptList = adapterServices(listServices);
+
+  const filterList = labelFilter
+    ? adaptList.filter((srv) => srv.label === labelFilter)
+    : adaptList;
+
   return {
-    listServices: adapterServices(listServices),
+    listServices: filterList,
     saveOne,
     removeOne,
     getById,
     updateById,
+    setLabelFilter,
   };
 };
