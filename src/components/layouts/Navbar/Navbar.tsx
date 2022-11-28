@@ -5,12 +5,7 @@ interface MenuItem {
   label: string;
 }
 
-const menuList: MenuItem[] = [
-  { href: "/", label: "Todos" },
-  { href: "/cars", label: "Autos" },
-  { href: "/health", label: "Salud" },
-  { href: "/home", label: "Hogar" },
-];
+const menuList: MenuItem[] = [{ href: "/", label: "Todos" }];
 
 export const Navbar = () => {
   return (
