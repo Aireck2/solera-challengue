@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useFormik } from "formik";
 
 import { ServiceValues } from "@/models/service";
-import { Button, Card, FormItem, Input } from "@/components/basics";
+import { Button, Card, FormItem, Input, Select } from "@/components/basics";
 
 import { validationSchema } from "./validationSchema";
 
@@ -69,11 +69,20 @@ export const ServiceForm: FC<ServiceFormProps> = (props) => {
             errors={formik.errors.label}
             touched={formik.touched.label}
           >
-            <Input
+            <Select
               name="label"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              placeholder={"Select one option"}
               value={formik.values.label}
+              options={
+                <>
+                  <option value="">(Select an option)</option>
+                  <option value="Autos">Autos</option>
+                  <option value="Salud">Salud</option>
+                  <option value="Hogar">Hogar</option>
+                </>
+              }
             />
           </FormItem>
         </>
