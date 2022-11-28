@@ -15,6 +15,16 @@ export const CardStyled = styled.div`
     font-size: 14px;
     height: 100%;
   }
+  p {
+    margin-bottom: 10px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 0.15rem 0.3rem;
+    background-color: #d9d9d9;
+    border-radius: 4px;
+    border: 1px solid darkgray;
+  }
   .actions {
     justify-self: flex-end;
     border-top: 1px solid #d9d9d9;
