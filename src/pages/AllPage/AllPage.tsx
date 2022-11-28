@@ -10,8 +10,14 @@ const AllPage = () => {
   return (
     <ContainerStyled>
       <section className="list">
-        {listServices.map(({ id, name, description }) => (
-          <ServiceCard key={id} name={name} description={description} id={id} />
+        {listServices.map(({ id, name, description, label }) => (
+          <ServiceCard
+            key={id}
+            name={name}
+            description={description}
+            label={label}
+            id={id}
+          />
         ))}
       </section>
       <section className="form">

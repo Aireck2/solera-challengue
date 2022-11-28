@@ -30,7 +30,7 @@ export const ServiceCard: FC<ServiceItem> = ({
     >
       <>
         <p>{description}</p>
-        <span>{label}</span>
+        <p className="tag">{label}</p>
       </>
     </Card>
   );

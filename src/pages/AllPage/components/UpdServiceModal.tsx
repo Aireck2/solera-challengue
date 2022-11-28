@@ -12,6 +12,7 @@ export const UpdServiceModal: FC<{ id: string }> = ({ id }) => {
 
   const handleUpdate = (values: ServiceValues) => {
     updateById(id, values);
+    handleClose();
   };
 
   const service = getById(id);
