@@ -1,12 +1,10 @@
 import { FC } from "react";
 
 import { Button, Card } from "@/components/basics";
+import { ServiceItem } from "@/models/service";
+import { useServices } from "@/hooks";
 
-import { ServiceValues } from "./Form/ServiceForm";
-
-interface ServiceItem extends ServiceValues {
-  id: string;
-}
+import { UpdServiceModal } from "./UpdServiceModal";
 
 export const ServiceCard: FC<ServiceItem> = ({
   id,
@@ -14,13 +12,19 @@ export const ServiceCard: FC<ServiceItem> = ({
   description,
   label,
 }) => {
+  const { removeOne } = useServices();
+
+  const handleRemove = () => removeOne(id);
+
   return (
     <Card
       title={name}
       actions={
         <>
-          <Button type="link">Editar</Button>
-          <Button type="link">Eliminar</Button>
+          <UpdServiceModal id={id} />
+          <Button type="link" onClick={handleRemove}>
+            Eliminar
+          </Button>
         </>
       }
     >
