@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useFormik } from "formik";
 
+import { ServiceValues } from "@/models/service";
 import { Button, Card, FormItem, Input } from "@/components/basics";
 
 import { validationSchema } from "./validationSchema";
@@ -8,11 +9,7 @@ import { validationSchema } from "./validationSchema";
 interface ServiceFormProps {
   handleSubmit: (values: ServiceValues) => void;
   initialValues: any;
-}
-export interface ServiceValues {
-  name: string;
-  description: string;
-  label?: string;
+  handleCancel?: () => void;
 }
 
 export const ServiceForm: FC<ServiceFormProps> = (props) => {
@@ -34,7 +31,11 @@ export const ServiceForm: FC<ServiceFormProps> = (props) => {
             <Button type="success" htmlType="submit">
               Grabar
             </Button>
-            <Button type="error">Cancelar</Button>
+            {props?.handleCancel && (
+              <Button type="error" onClick={props.handleCancel}>
+                Cancelar
+              </Button>
+            )}
           </>
         }
       >
